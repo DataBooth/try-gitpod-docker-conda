@@ -5,7 +5,7 @@
 #
 # The code used for building this image can be found at https://github.com/conda-forge/miniforge-images
 
-FROM FROM condaforge/mambaforge:latest as conda
+FROM condaforge/mambaforge:latest as conda
 
 USER gitpod
 
