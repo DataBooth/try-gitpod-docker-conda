@@ -1,4 +1,4 @@
-[Open in Gitpod](https://gitpod.io/#github.com/DataBooth/try-gitpod-docker-conda
+[Open in Gitpod](https://gitpod.io/#github.com/DataBooth/try-gitpod-docker-conda)
 
 # `try-gitpod-docker-conda`
 
