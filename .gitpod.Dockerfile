@@ -1,12 +1,12 @@
-FROM jupyter/scipy-notebook
+# https://hub.docker.com/r/condaforge/mambaforge
+#
+# This is a Docker container based on a minimal Ubuntu installation that includes conda-forge's mambaforge installer pre-installed at /opt/conda. 
+# The container is build for amd64, arm64 and ppc64le. The tags of the images are in line with the official miniforge release tags.
+#
+# The code used for building this image can be found at https://github.com/conda-forge/miniforge-images
+
+FROM FROM condaforge/mambaforge:latest as conda
 
 USER gitpod
 
-# Install custom tools, runtime, etc. using apt-get
-# For example, the command below would install "bastet" - a command line tetris clone:
-#
-# RUN sudo apt-get -q update && \
-#     sudo apt-get install -yq bastet && \
-#     sudo rm -rf /var/lib/apt/lists/*
-#
-# More information: https://www.gitpod.io/docs/config-docker/
+# For more information on Gitpod Docker configuration: https://www.gitpod.io/docs/config-docker/
