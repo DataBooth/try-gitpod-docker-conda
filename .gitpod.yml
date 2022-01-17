@@ -5,9 +5,11 @@ tasks:
   - name: setupconda
   - before: |
       pip install conda-lock
-      /home/gitpod/.local/bin/conda-lock -p linux-64 -f environment.yml
+      echo "PATH="/home/gitpod/.local/bin:$PATH"" >> ${HOME}/.bashrc
+      source ~/.bashrc
+      conda-lock -p linux-64 -f environment.yml
       mamba create --name dbooth-dev --file conda-linux-64.lock 
-      source activate dbooth-dev
+      conda activate dbooth-dev
       python -m ipykernel install --user --name=dbooth-dev
       conda -V && python -V
 
