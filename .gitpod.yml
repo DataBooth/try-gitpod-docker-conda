@@ -11,6 +11,7 @@ tasks:
       mamba create --name dbooth-dev --file conda-linux-64.lock 
       conda activate dbooth-dev
       python -m ipykernel install --user --name=dbooth-dev
+      alias notebook="jupyter notebook --NotebookApp.allow_origin='*'"
       conda -V && python -V
 
 

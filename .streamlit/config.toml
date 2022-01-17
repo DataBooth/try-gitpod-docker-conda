@@ -11,6 +11,11 @@ disableWatchdogWarning = false
 # Default: true
 showWarningOnDirectExecution = true
 
+# DataFrame serialization.
+# Acceptable values: - 'legacy': Serialize DataFrames using Streamlit's custom format. Slow but battle-tested. - 'arrow': Serialize DataFrames using Apache Arrow. Much faster and versatile.
+# Default: "arrow"
+dataFrameSerialization = "arrow"
+
 
 [logger]
 
@@ -73,10 +78,10 @@ fileWatcherType = "auto"
 
 # Symmetric key used to produce signed cookies. If deploying on multiple replicas, this should be set to the same value across all replicas to ensure they all share the same secret.
 # Default: randomly generated secret key.
-cookieSecret = "a96a818e90bb1ce7d2eaa5d1ac4d3fa63936612098aeb5a777dc2b872bb0b179"
+cookieSecret = "3ac3940c2c48d69e7b5b2a8ccc72e9e2e86374f42b9adc10cf507b126a5f0043"
 
 # If false, will attempt to open a browser window on start.
-# Default: false unless (1) we are on a Linux box where DISPLAY is unset, or (2) server.liveSave is set.
+# Default: false unless (1) we are on a Linux box where DISPLAY is unset, or (2) we are running in the Streamlit Atom plugin.
 headless = true
 
 # Automatically rerun script when the file is modified on disk.
@@ -109,6 +114,10 @@ enableXsrfProtection = true
 # Default: 200
 maxUploadSize = 200
 
+# Max size, in megabytes, of messages that can be sent via the WebSocket connection.
+# Default: 200
+maxMessageSize = 200
+
 # Enables support for websocket compression.
 # Default: true
 enableWebsocketCompression = true
@@ -117,7 +126,7 @@ enableWebsocketCompression = true
 [browser]
 
 # Internet address where users should point their browsers in order to connect to the app. Can be IP address or DNS name and path.
-# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
+# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser
 # Default: 'localhost'
 serverAddress = "localhost"
 
@@ -126,9 +135,17 @@ serverAddress = "localhost"
 gatherUsageStats = false
 
 # Port where users should point their browsers in order to connect to the app.
-# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser - Tell the browser where to connect to the server when in liveSave mode.
+# This is used to: - Set the correct URL for CORS and XSRF protection purposes. - Show the URL on the terminal - Open the browser
 # Default: whatever value is set in server.port.
 serverPort = 8501
+
+
+[ui]
+
+# Flag to hide most of the UI elements found at the top of a Streamlit app.
+# NOTE: This does *not* hide the hamburger menu in the top-right of an app.
+# Default: false
+hideTopBar = false
 
 
 [mapbox]
@@ -141,56 +158,15 @@ token = ""
 [deprecation]
 
 # Set to false to disable the deprecation warning for the file uploader encoding.
-# Default: "True"
-showfileUploaderEncoding = "True"
+# Default: true
+showfileUploaderEncoding = true
 
 # Set to false to disable the deprecation warning for using the global pyplot instance.
-# Default: "True"
-showPyplotGlobalUse = "True"
-
-
-[s3]
-
-# Name of the AWS S3 bucket to save apps.
-# Default: (unset)
-#bucket =
-
-# URL root for external view of Streamlit apps.
-# Default: (unset)
-#url =
-
-# Access key to write to the S3 bucket.
-# Leave unset if you want to use an AWS profile.
-# Default: (unset)
-#accessKeyId =
-
-# Secret access key to write to the S3 bucket.
-# Leave unset if you want to use an AWS profile.
-# Default: (unset)
-#secretAccessKey =
-
-# The "subdirectory" within the S3 bucket where to save apps.
-# S3 calls paths "keys" which is why the keyPrefix is like a subdirectory. Use "" to mean the root directory.
-# Default: ""
-keyPrefix = ""
-
-# AWS region where the bucket is located, e.g. "us-west-2".
-# Default: (unset)
-#region =
-
-# AWS credentials profile to use.
-# Leave unset to use your default profile.
-# Default: (unset)
-#profile =
+# Default: true
+showPyplotGlobalUse = true
 
 
 [theme]
-
-#primaryColor="#F63366"
-#backgroundColor="#FFFFFF"
-#secondaryBackgroundColor="#F0F2F6"
-#textColor="#262730"
-#font="sans serif"
 
 # The preset Streamlit theme that your custom theme inherits from. One of "light" or "dark".
 #base =
@@ -209,3 +185,4 @@ keyPrefix = ""
 
 # Font family for all text in the app, except code blocks. One of "sans serif", "serif", or "monospace".
 #font =
+
