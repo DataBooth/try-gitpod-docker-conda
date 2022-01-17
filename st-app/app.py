@@ -4,7 +4,7 @@ from pathlib import Path
 #import pandas as pd
 #import numpy as np
 
-from dynaconf import settings
+#from dynaconf import settings
 
 st.header("LKT Market Watch")
 

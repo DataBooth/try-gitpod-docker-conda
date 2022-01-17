@@ -1,5 +1,17 @@
 image:
   file: .gitpod.Dockerfile
+
+tasks:
+  - name: setupconda
+  - before: |
+      pip install conda-lock
+      /home/gitpod/.local/bin/conda-lock -p linux-64 -f environment.yml
+      mamba create --name dbooth-dev --file conda-linux-64.lock 
+      source activate dbooth-dev
+      python -m ipykernel install --user --name=dbooth-dev
+      conda -V && python -V
+
+
 ports:
 - port: 8888
 - port: 8501
