@@ -10,4 +10,4 @@ dependencies:
   - jupyterlab 
   - ipykernel
   - streamlit>=1.0
-  - boto3
+  - s3fs

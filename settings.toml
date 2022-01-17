@@ -4,6 +4,8 @@ AUTHOR = '[Emmeline @ DataBooth.com.au](https://www.databooth.com.au)'
 NAME = 'LKT Market Watch' 
 LAYOUT = 'wide'
 VERSION = "0.1"
+
+# Default starting ASX ticker codes
 CODE_1 = "ANZ"
 LABEL_1 = "ANZ Bank"
 CODE_2 = "CBA"
@@ -14,10 +16,10 @@ CODE_4 = "WBC"
 LABEL_4 = "Westpac Bank"
 CODE_5 = "MGL"
 LABEL_5 = "Macquarie Bank"
-# [S3] Cloud Object Storage: https://console.scaleway.com
-ACCESS_KEY_ID = 'SCW5MSNHMS37P6Q0ZZV2'   # Credentials
-SECRET_ACCESS_TOML = '.secrets.toml'
-STORAGE_BUCKET_NAME = 'personal-tan-lea-kuan'
-DEFAULT_ACL = 'public-read'
-REGION_NAME = 'fr-par'
-ENDPOINT_URL = 'https://s3.fr-par.scw.cloud'
+
+# Keys to access S3 Cloud Object Storage on Scaleway.com: https://console.scaleway.com
+S3__ACCESS_KEY_ID = 'SCW5MSNHMS37P6Q0ZZV2'   # Credentials
+S3__BUCKET_NAME = 'test-bucket-2047'
+S3__DEFAULT_ACL = 'public-read'
+S3__REGION_NAME = 'fr-par'
+S3__ENDPOINT_URL = 'https://s3.fr-par.scw.cloud'
